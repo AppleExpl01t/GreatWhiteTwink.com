@@ -3,7 +3,7 @@
 /* Self-hosted faces. No Google Fonts request, no third-party connection. */
 @import "@fontsource/anton";
 @import "@fontsource-variable/archivo/wdth.css"; /* wght + wdth 62%–125% */
-@import "@fontsource/caveat-brush";
+@import "@fontsource/new-rocker";
 @import "@fontsource/dm-mono/400.css";
 @import "@fontsource/dm-mono/500.css";
 
@@ -34,7 +34,7 @@
   --font-*: initial;
   --font-display: "Anton", Impact, sans-serif;
   --font-body: "Archivo Variable", "Arial Narrow", sans-serif;
-  --font-script: "Caveat Brush", cursive;
+  --font-script: "New Rocker", Impact, sans-serif;
   --font-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
@@ -233,13 +233,13 @@
 
   .script {
     font-family: var(--font-script); /* used exactly once. that's the deal. */
-    font-size: clamp(3.2rem, 17vw, 6rem);
+    font-size: clamp(3rem, 15.5vw, 5.6rem);
     color: var(--color-chill);
     line-height: 0.9;
     display: block;
     text-align: right;
-    margin: -0.34em 0 0 auto;
-    padding-right: 34px;
+    margin: -0.3em 0 0 auto;
+    padding-right: 38px;
     transform: rotate(-4.5deg);
     transform-origin: right center;
     position: relative;

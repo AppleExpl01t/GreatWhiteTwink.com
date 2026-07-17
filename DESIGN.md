@@ -34,7 +34,9 @@ utilities don't compile to anything. Keep it that way.
 - **Archivo** (variable, wdth 62–125) — body. Worked at extremes:
   900 weight at 62% width against 200 weight at 125% width.
 - **DM Mono** — the printer's voice: tags, captions, tools, edge slug.
-- **Caveat Brush** — used exactly once ("Twink"). That's the deal.
+- **New Rocker** — used exactly once ("Twink"). That's the deal.
+  Chosen over a brush script on the client's call: sharp and edgy,
+  never flamboyant or soft.
 
 ## Structure rules
 
