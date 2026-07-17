@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- the fin, misregistered — same joke as the masthead, at 16px -->
+  <rect width="24" height="24" fill="#08090B"/>
+  <path d="M2 20h20L13 3 8 14l-3-2z" fill="#A8C6E8" transform="translate(1.6 -1.6)"/>
+  <path d="M2 20h20L13 3 8 14l-3-2z" fill="#F1F4F7"/>
+</svg>
