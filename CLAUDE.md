@@ -7,8 +7,10 @@ deployed to Cloudflare Workers static assets (wrangler.jsonc).
 
 DESIGN.md is the locked design decision. Follow it exactly; where it is
 silent, ask — do not default. The short version: this is a misprinted
-xerox flyer. Five colors (ink/paper/silver/chill/rule/dim), radius 0,
-no shadows, no glass, no new fonts, motion is steps/inversion only.
+xerox flyer. Five grays (ink/paper/silver/rule/dim) and no accent hue —
+type and logos are a one-plate black job, so emphasis is more ink
+(inversion), never color. Radius 0, no shadows, no glass, no new fonts,
+motion is steps/inversion only.
 
 Tailwind's default palette, radii, shadows and blurs are wiped in the
 `@theme` block of src/index.css. That is deliberate and load-bearing:

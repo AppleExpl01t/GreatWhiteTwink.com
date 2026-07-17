@@ -8,24 +8,24 @@
 @import "@fontsource/dm-mono/500.css";
 
 /* ══ THE DECISION ═════════════════════════════════════════════
-   PALETTE — 5 values, derived from the client's own artwork,
-   which is already monochrome. This is not "dark mode by default";
-   there is no light version of this brand. The accent is INK,
-   never light: no colored glows, no saturated shadows, anywhere.
+   PALETTE — 5 values, all of them gray. The brand is strictly
+   monochrome: one plate, black, exactly like the client's artwork.
+   There is no accent hue anywhere. Emphasis on this page is done
+   the way a press does it — MORE INK (inversion), never color.
+   No colored glows, no saturated shadows, no tints.
 
    The `initial` wipes below are load-bearing. They delete Tailwind's
    default palette, radii, shadows and blurs, so `bg-indigo-500`,
    `rounded-2xl` and `backdrop-blur` produce NOTHING in this project.
-   The only colors that compile are the plate colors.
+   The only colors that compile are the plate grays.
    ══════════════════════════════════════════════════════════════ */
 @theme {
   --color-*: initial;
-  --color-ink:    #08090B; /* the ground. near-black paper */
-  --color-paper:  #F1F4F7; /* blown white. type + the one inverted slab */
-  --color-silver: #8B929B; /* utility text. 6.2:1 on ink */
-  --color-chill:  #A8C6E8; /* THE accent. cold ice-blue. 11.2:1 on ink */
-  --color-rule:   #23272D; /* hairlines. non-text, decorative only */
-  --color-dim:    #4A4E54; /* secondary text ON the white slab. 7.6:1 */
+  --color-ink:    #0A0A0A; /* the ground. near-black paper */
+  --color-paper:  #F2F2F2; /* blown white. type + the inverted blocks */
+  --color-silver: #8F8F8F; /* utility text. 6.1:1 on ink */
+  --color-rule:   #272727; /* hairlines. non-text, decorative only */
+  --color-dim:    #4E4E4E; /* secondary text ON the white blocks. 7.4:1 */
 
   --radius-*: initial;     /* radius is 0 everywhere. this is a flyer. */
   --shadow-*: initial;     /* no shadows. ink does not float. */
@@ -40,8 +40,8 @@
 
 :root {
   /* airbrushed-chrome bands for the masthead. non-text, decorative. */
-  --chrome-lo: #5C636B; /* darkest band. 3.3:1 — passes AA large-text */
-  --chrome-md: #9AA1A9;
+  --chrome-lo: #656565; /* darkest band. 3.4:1 — passes AA large-text */
+  --chrome-md: #A2A2A2;
   --chrome-hi: #FFFFFF;
 
   --gutter: 22px;
@@ -72,7 +72,7 @@
     text-decoration: none;
   }
   a:focus-visible {
-    outline: 2px solid var(--color-chill);
+    outline: 2px solid var(--color-paper);
     outline-offset: 3px;
   }
 }
@@ -95,10 +95,11 @@
     z-index: 1;
   }
   /* THE PLATE FLIP. the whole page is one black plate; this flips it —
-     a photographic negative, blue goes orange and all. It's the joke and
-     it's also a real light mode for people who need one. The backdrop
-     canvas sits outside this filter (CSS `filter` breaks position:fixed
-     descendants) and inverts itself in the shader instead. */
+     a true photographic negative, and on a one-plate-black job the
+     negative is exact. It's the joke and it's also a real light mode
+     for people who need one. The backdrop canvas sits outside this
+     filter (CSS `filter` breaks position:fixed descendants) and
+     inverts itself in the shader instead. */
   html.neg .page {
     filter: invert(1);
   }
@@ -188,9 +189,9 @@
       178deg,
       var(--chrome-lo) 0%,   var(--chrome-lo) 15%,
       var(--chrome-hi) 15%,  var(--chrome-hi) 33%,
-      #C9CFD6 33%,           #C9CFD6 45%,
+      #CFCFCF 33%,           #CFCFCF 45%,
       var(--chrome-lo) 45%,  var(--chrome-lo) 55%,
-      #E9EEF3 55%,           #E9EEF3 73%,
+      #EDEDED 55%,           #EDEDED 73%,
       var(--chrome-md) 73%,  var(--chrome-md) 87%,
       var(--chrome-hi) 87%,  var(--chrome-hi) 100%
     );
@@ -200,8 +201,9 @@
     position: relative;
     z-index: 2;
   }
-  /* MISREGISTRATION. the ice-blue plate is 2px out of register.
-     this is the whole design in one detail. */
+  /* MISREGISTRATION. the second strike is 2px out of register — a
+     double-exposure in the same black ink, the way a real one-plate
+     misprint ghosts. this is the whole design in one detail. */
   .ghost {
     position: absolute;
     inset: 0;
@@ -212,8 +214,8 @@
     text-transform: uppercase;
     margin-left: -0.055em;
     line-height: 0.8;
-    color: var(--color-chill);
-    opacity: 0.85;
+    color: var(--color-paper);
+    opacity: 0.55;
     mix-blend-mode: screen;
     transform: translate(2px, -2px);
     animation: register 300ms steps(3, end) both;
@@ -234,7 +236,7 @@
   .script {
     font-family: var(--font-script); /* used exactly once. that's the deal. */
     font-size: clamp(3rem, 15.5vw, 5.6rem);
-    color: var(--color-chill);
+    color: var(--color-paper);
     line-height: 0.9;
     display: block;
     text-align: right;
@@ -251,7 +253,7 @@
     top: 6px;
     width: 44px;
     height: 40px;
-    stroke: var(--color-chill);
+    stroke: var(--color-paper);
     fill: none;
     stroke-width: 5.5;
     stroke-linecap: round;
@@ -295,7 +297,7 @@
     left: calc(var(--gutter) - 7px);
     width: 18px;
     height: 18px;
-    stroke: var(--color-chill);
+    stroke: var(--color-silver);
     fill: none;
     stroke-width: 0.9;
     z-index: 3;
@@ -385,7 +387,7 @@
     line-height: 1.42;
   }
   .follow li i {
-    color: var(--color-chill);
+    color: var(--color-paper);
     font-style: normal;
     font-size: 0.72rem;
   }
@@ -418,8 +420,16 @@
     text-transform: uppercase;
     letter-spacing: 0.01em;
   }
-  .spec dd.hot {
-    color: var(--color-chill);
+  /* the hot cell. emphasis in monochrome = full coverage, so the one
+     cell that runs hot prints inverted, like the slab and the rows. */
+  .spec div.hot {
+    background: var(--color-paper);
+  }
+  .spec div.hot dt {
+    color: var(--color-dim);
+  }
+  .spec div.hot dd {
+    color: var(--color-ink);
   }
 
   /* ── THE INDEX ──────────────────────────────────────────────── */
@@ -489,7 +499,7 @@
     font-size: 0.58rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--row-tag, var(--color-chill));
+    color: var(--row-tag, var(--color-paper));
     align-self: start;
     padding-top: 0.35em;
   }
@@ -646,7 +656,7 @@
     display: inline; /* preflight blocks svgs; this one rides the text line */
     width: 20px;
     height: 20px;
-    fill: var(--color-chill);
+    fill: var(--color-paper);
     vertical-align: -2px;
     margin-left: 8px;
   }
@@ -686,7 +696,7 @@
     color: var(--color-ink);
   }
   .tools :focus-visible {
-    outline: 2px solid var(--color-chill);
+    outline: 2px solid var(--color-paper);
     outline-offset: -4px;
   }
   .tools [data-state="ok"] {
@@ -694,7 +704,7 @@
     color: var(--color-ink);
   }
   .tools [data-state="err"] {
-    color: var(--color-chill);
+    color: var(--color-paper);
   }
 
   .regfoot {

@@ -6,27 +6,33 @@ inversion, the halftone screen. Radius is 0 everywhere. There are no
 buttons — there are rows. If a change wouldn't make sense on a flyer
 stapled to a venue door, it doesn't belong here.
 
-The signature element is the **misregistered masthead**: the ice-blue
-plate printed 2px out of line, snapping into register on load. That is
-the one page-load moment. Don't add a second one.
+The signature element is the **misregistered masthead**: the second
+strike printed 2px out of line in the same black ink, snapping into
+register on load. That is the one page-load moment. Don't add a second
+one.
 
 ## Palette — five values, nothing else
 
 | Token      | Hex       | Job                                            |
 | ---------- | --------- | ---------------------------------------------- |
-| `ink`      | `#08090B` | the ground. near-black paper                   |
-| `paper`    | `#F1F4F7` | blown white. type + the one inverted slab      |
-| `silver`   | `#8B929B` | utility text — 6.2:1 on ink                    |
-| `chill`    | `#A8C6E8` | THE accent. cold ice-blue — 11.2:1 on ink      |
-| `rule`     | `#23272D` | hairlines. decorative only, never text         |
-| `dim`      | `#4A4E54` | secondary text on the white slab — 7.6:1       |
+| `ink`      | `#0A0A0A` | the ground. near-black paper                   |
+| `paper`    | `#F2F2F2` | blown white. type + the inverted blocks        |
+| `silver`   | `#8F8F8F` | utility text — 6.1:1 on ink                    |
+| `rule`     | `#272727` | hairlines. decorative only, never text         |
+| `dim`      | `#4E4E4E` | secondary text on the white blocks — 7.4:1     |
+
+Every one of them is gray. Type and logos are a **one-plate black job**
+— there is no accent hue in the page's ink, and emphasis is done the way
+a press does it: **more ink** (inversion), never color. That is why the
+hot spec cell and the slab print as white blocks rather than tinted
+text. No colored glows, no saturated shadows, no tints.
 
 This is not "dark mode by default": there is no light version of this
-brand. The accent is ink, never light — no colored glows, no saturated
-shadows, anywhere. The chrome bands in the masthead are achromatic
-metal, not gradient text. Tailwind's default palette, radii, shadows and
-blurs are deleted in `@theme` (`src/index.css`), so off-palette
-utilities don't compile to anything. Keep it that way.
+brand. Because the plate is a single black, the `html.neg` flip is an
+exact photographic negative. The chrome bands in the masthead are
+achromatic metal, not gradient text. Tailwind's default palette, radii,
+shadows and blurs are deleted in `@theme` (`src/index.css`), so
+off-palette utilities don't compile to anything. Keep it that way.
 
 ## Type — four roles
 
@@ -50,7 +56,10 @@ utilities don't compile to anything. Keep it that way.
   `prefers-reduced-motion`.
 - The flame backdrop is ground texture, not a hero effect. It stays
   near-black, hard-dotted, and quiet. If it's the first thing you
-  notice, turn it down.
+  notice, turn it down. It is the one place a cold tint survives: the
+  hottest cells lift toward `vec3(0.157, 0.220, 0.298)`, held way down
+  and hardcoded in the shader, not read from the palette. That is
+  deliberate — the ink is monochrome, the toner haze is not.
 
 ## Anti-brief
 
@@ -61,6 +70,6 @@ badges, no FAQ, no emoji in the UI, no Inter/Space Grotesk/Fraunces.
 ## Floor
 
 WCAG 2.2 AA: 4.5:1 body text, 3:1 large text and UI, visible focus
-indicators (2px `chill` outline on ink; 2px `ink` outline on paper).
+indicators (2px `paper` outline on ink; 2px `ink` outline on paper).
 Error copy names what happened and what to do, in the product's voice,
 without apologizing.
